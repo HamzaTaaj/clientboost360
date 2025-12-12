@@ -1,32 +1,33 @@
 @import "tailwindcss";
 
 :root {
-  --background: #F3F5F7;
-  --foreground: #1E1E1E;
-  --turq : #12C4A8;
-  --text-dark : #1E1E1E;
-  
-  font-family: 'Poppins';
+  --background: #f3f5f7;
+  --foreground: #1e1e1e;
+  --turq: #12c4a8;
+  --text-dark: #1e1e1e;
+
+  font-family: "Poppins";
 }
 
-
-body{
-  background-color: var(--background);
-  color: var(--foreground);
-  font-family: 'Inter', sans-serif;
-  margin: 0;
-  overflow-x: hidden;
-
-}
-
-
-.FormPresenterDialog.FPDUserInfo .DCFormBuilder .DCFBInner .DCFBVew{
-  display:none !important;
-}
-
-#dcFormBuilderView{
+.hs-form div[style*="text-align:center"] {
   display: none !important;
 }
-.ripple-loader{
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.FormPresenterDialog.FPDUserInfo .DCFormBuilder .DCFBInner .DCFBVew {
+  display: none !important;
+}
+
+#dcFormBuilderView {
+  display: none !important;
+}
+.ripple-loader {
   background-color: var(--background) !important;
 }

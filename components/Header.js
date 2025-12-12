@@ -1,10 +1,10 @@
 "use client";
-import { useState, useEffect, useRef } from 'react';
-import { FaBars, FaTimes } from 'react-icons/fa';
-import Link from 'next/link';
-import Image from 'next/image';
-import { usePathname } from 'next/navigation';
-import { useRouter } from 'next/router';
+import { useState, useEffect, useRef } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
+import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { useRouter } from "next/router";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,7 +17,8 @@ const Header = () => {
     { name: "About Us", path: "/about" },
     { name: "Services", path: "/services" },
     { name: "Pricing", path: "/pricing" },
-    { name: "Contact", path: "/contact" }
+    { name: "Blog", path: "https://clientboost360.com/blogs/", external: true },
+    { name: "Contact", path: "/contact" },
   ];
 
   useEffect(() => {
@@ -28,13 +29,13 @@ const Header = () => {
     };
 
     if (isMenuOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener("mousedown", handleClickOutside);
     } else {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     }
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [isMenuOpen]);
 
@@ -43,10 +44,10 @@ const Header = () => {
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
         <div
-  onClick={() => router.push('/')}
-  className="flex items-center space-x-2 pl-4 sm:pl-8 md:pl-12 lg:pl-20 xl:pl-0 2xl:pl-30 cursor-pointer"
->
-    <Image
+          onClick={() => router.push("/")}
+          className="flex items-center space-x-2 pl-4 sm:pl-8 md:pl-12 lg:pl-20 xl:pl-0 2xl:pl-30 cursor-pointer"
+        >
+          <Image
             src="/logo.png"
             alt="Logo"
             width={72}
@@ -62,7 +63,7 @@ const Header = () => {
               key={link.name}
               href={link.path}
               className={`relative text-gray-600 hover:text-[#12C4A8] transition-colors duration-300 ${
-                pathname === link.path ? 'text-[#12C4A8] font-bold' : ''
+                pathname === link.path ? "text-[#12C4A8] font-bold" : ""
               }`}
             >
               {link.name}
@@ -75,7 +76,10 @@ const Header = () => {
 
         {/* Let’s Talk Button */}
         <div className="hidden md:flex mr-2">
-          <Link href="/contact" className="bg-[#1E1E1E] text-white font-semibold py-3 px-6 rounded-lg hover:bg-opacity-80 transition-all duration-300">
+          <Link
+            href="/contact"
+            className="bg-[#1E1E1E] text-white font-semibold py-3 px-6 rounded-lg hover:bg-opacity-80 transition-all duration-300"
+          >
             Let's Talk
           </Link>
         </div>
@@ -83,7 +87,11 @@ const Header = () => {
         {/* Mobile Menu Button */}
         <div className="md:hidden">
           <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            {isMenuOpen ? <FaTimes className="h-6 w-6 text-[#1E1E1E]" /> : <FaBars className="h-6 w-6 text-[#1E1E1E]" />}
+            {isMenuOpen ? (
+              <FaTimes className="h-6 w-6 text-[#1E1E1E]" />
+            ) : (
+              <FaBars className="h-6 w-6 text-[#1E1E1E]" />
+            )}
           </button>
         </div>
       </div>
@@ -91,14 +99,18 @@ const Header = () => {
       {/* Mobile Menu - Right Side Drawer */}
       <div
         ref={menuRef}
-        className={`md:hidden fixed top-0 right-0 h-full w-64 bg-white rounded-l-lg shadow-lg p-6 transform transition-transform duration-300 ease-in-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
+        className={`md:hidden fixed top-0 right-0 h-full w-64 bg-white rounded-l-lg shadow-lg p-6 transform transition-transform duration-300 ease-in-out ${
+          isMenuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
       >
         <nav className="flex flex-col space-y-4">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.path}
-              className={`text-gray-600 hover:text-[#12C4A8] ${pathname === link.path ? 'text-[#12C4A8] font-bold' : ''}`}
+              className={`text-gray-600 hover:text-[#12C4A8] ${
+                pathname === link.path ? "text-[#12C4A8] font-bold" : ""
+              }`}
               onClick={() => setIsMenuOpen(false)}
             >
               {link.name}

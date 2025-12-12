@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { MdArrowOutward } from "react-icons/md";
+import ContactForm from "@/components/ContactForm";
 
 const ContactPage = () => {
   // Animation variants for sections
@@ -105,86 +106,12 @@ const ContactPage = () => {
                 alt="Map Placeholder"
                 width={600}
                 height={400}
-                className="w-full h-full object-cover"
+                className="h-[450px] lg:h-[520px] rounded-2xl overflow-hidden"
               />
             </div>
 
             {/* Form */}
-            <form
-              action="https://formspree.io/f/mnnzrzyr"
-              method="POST"
-              className="space-y-6 max-w-2/3 max-sm:max-w-full"
-              onSubmit={() => {
-                if (typeof window !== "undefined") {
-                  window.dataLayer = window.dataLayer || [];
-                  window.dataLayer.push({ event: "formSubmission" });
-                }
-              }}
-            >
-              <div>
-                <label htmlFor="name" className="sr-only">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  id="name"
-                  placeholder="Name"
-                  required
-                  className="bg-white w-full px-5 py-4 rounded-xl border-0 focus:ring-2 focus:ring-inset focus:ring-teal-500 transition"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="email" className="sr-only">
-                  Email address
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  placeholder="Email address"
-                  required
-                  className="bg-white w-full px-5 py-4 rounded-xl border-0 focus:ring-2 focus:ring-inset focus:ring-teal-500 transition"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="phone" className="sr-only">
-                  Phone Number (optional)
-                </label>
-                <input
-                  type="tel"
-                  name="phone"
-                  id="phone"
-                  placeholder="Phone Number (optional)"
-                  className="bg-white w-full px-5 py-4 rounded-xl border-0 focus:ring-2 focus:ring-inset focus:ring-teal-500 transition"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="message" className="sr-only">
-                  Message
-                </label>
-                <textarea
-                  name="message"
-                  id="message"
-                  rows={6}
-                  placeholder="Message"
-                  required
-                  className="bg-white w-full px-5 py-4 rounded-xl border-0 focus:ring-2 focus:ring-inset focus:ring-teal-500 transition"
-                ></textarea>
-              </div>
-
-              <motion.button
-                type="submit"
-                className="w-full px-8 py-4 bg-[var(--turq)] text-white font-medium rounded-lg hover:bg-teal-600 transition-colors"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Send now
-              </motion.button>
-            </form>
+            <ContactForm />
           </motion.div>
         </div>
       </section>
